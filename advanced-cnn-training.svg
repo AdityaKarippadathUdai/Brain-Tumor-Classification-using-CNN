@@ -1,0 +1,394 @@
+<svg width="1400" height="760" viewBox="0 0 1400 760"
+xmlns="http://www.w3.org/2000/svg">
+
+<style>
+
+    .bg {
+        fill:#050816;
+    }
+
+    .title {
+        font:bold 40px Arial;
+        fill:#00ffff;
+    }
+
+    .subtitle {
+        font:18px Arial;
+        fill:#bbbbbb;
+    }
+
+    .label {
+        font:bold 20px Arial;
+        fill:white;
+    }
+
+    .small {
+        font:14px Arial;
+        fill:#cccccc;
+    }
+
+    .layer {
+        fill:rgba(0,255,255,0.05);
+        stroke:#00ffff;
+        stroke-width:2;
+        rx:18;
+    }
+
+    .arrow {
+        stroke:#00ffff;
+        stroke-width:3;
+        fill:none;
+        stroke-linecap:round;
+        stroke-dasharray:10;
+        animation:flow 2s linear infinite;
+    }
+
+    @keyframes flow {
+        to {
+            stroke-dashoffset:-30;
+        }
+    }
+
+    .pulse {
+        animation:pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {opacity:0.4;}
+        50% {opacity:1;}
+        100% {opacity:0.4;}
+    }
+
+    .scan {
+        animation:scan 3s infinite ease-in-out;
+    }
+
+    @keyframes scan {
+        0% {transform:translateX(0px);}
+        50% {transform:translateX(80px);}
+        100% {transform:translateX(0px);}
+    }
+
+    .loss {
+        animation:lossAnim 6s infinite;
+        transform-origin:left;
+    }
+
+    @keyframes lossAnim {
+        0% {transform:scaleX(1);}
+        100% {transform:scaleX(0.15);}
+    }
+
+    .acc {
+        animation:accAnim 6s infinite;
+        transform-origin:left;
+    }
+
+    @keyframes accAnim {
+        0% {transform:scaleX(0.2);}
+        100% {transform:scaleX(1);}
+    }
+
+    .weights {
+        animation:weights 1.5s infinite;
+    }
+
+    @keyframes weights {
+        0% {opacity:0;}
+        50% {opacity:1;}
+        100% {opacity:0;}
+    }
+
+    .epoch {
+        animation:blink 2s infinite;
+    }
+
+    @keyframes blink {
+        0% {opacity:0.3;}
+        50% {opacity:1;}
+        100% {opacity:0.3;}
+    }
+
+</style>
+
+<rect width="100%" height="100%" class="bg"/>
+
+<!-- TITLE -->
+<text x="700" y="50" text-anchor="middle" class="title">
+Brain Tumor Classification using CNN
+</text>
+
+<text x="700" y="85" text-anchor="middle" class="subtitle">
+Deep Learning Training Pipeline Visualization
+</text>
+
+<!-- MRI INPUT -->
+<rect x="50" y="170" width="170" height="170" class="layer"/>
+
+<image href="https://upload.wikimedia.org/wikipedia/commons/0/0e/MRI_head_side.jpg"
+x="65" y="185" width="140" height="140"/>
+
+<text x="135" y="370" text-anchor="middle" class="label">
+MRI Input
+</text>
+
+<!-- INPUT TO PREPROCESS -->
+<path d="M220 255 L330 255" class="arrow"/>
+
+<!-- PREPROCESS -->
+<rect x="350" y="160" width="180" height="190" class="layer pulse"/>
+
+<text x="440" y="140" text-anchor="middle" class="label">
+Preprocessing
+</text>
+
+<text x="440" y="210" text-anchor="middle" class="small">
+• Resize Images
+</text>
+
+<text x="440" y="240" text-anchor="middle" class="small">
+• Normalize Pixels
+</text>
+
+<text x="440" y="270" text-anchor="middle" class="small">
+• Augmentation
+</text>
+
+<text x="440" y="300" text-anchor="middle" class="small">
+• Noise Reduction
+</text>
+
+<!-- PREPROCESS TO CNN -->
+<path d="M530 255 L640 255" class="arrow"/>
+
+<!-- CNN -->
+<rect x="660" y="140" width="220" height="240" class="layer"/>
+
+<text x="770" y="120" text-anchor="middle" class="label">
+Convolution Layer
+</text>
+
+<!-- FEATURE GRID -->
+<g stroke="#00ffff" opacity="0.5">
+
+<line x1="700" y1="180" x2="820" y2="180"/>
+<line x1="700" y1="210" x2="820" y2="210"/>
+<line x1="700" y1="240" x2="820" y2="240"/>
+<line x1="700" y1="270" x2="820" y2="270"/>
+<line x1="700" y1="300" x2="820" y2="300"/>
+
+<line x1="700" y1="180" x2="700" y2="300"/>
+<line x1="730" y1="180" x2="730" y2="300"/>
+<line x1="760" y1="180" x2="760" y2="300"/>
+<line x1="790" y1="180" x2="790" y2="300"/>
+<line x1="820" y1="180" x2="820" y2="300"/>
+
+</g>
+
+<!-- KERNEL -->
+<rect x="710" y="190" width="40" height="40"
+fill="rgba(0,255,255,0.35)"
+stroke="#00ffff"
+stroke-width="2"
+class="scan"/>
+
+<text x="770" y="340" text-anchor="middle" class="small">
+Kernel Scanning
+</text>
+
+<!-- CNN TO FEATURE MAPS -->
+<path d="M880 255 L980 255" class="arrow"/>
+
+<!-- FEATURE MAPS -->
+<g>
+
+<rect x="1010" y="170" width="30" height="120"
+fill="#00ffff" opacity="0.5"/>
+
+<rect x="1050" y="150" width="30" height="140"
+fill="#00ffff" opacity="0.6"/>
+
+<rect x="1090" y="180" width="30" height="110"
+fill="#00ffff" opacity="0.7"/>
+
+<rect x="1130" y="160" width="30" height="130"
+fill="#00ffff" opacity="0.8"/>
+
+</g>
+
+<text x="1090" y="330" text-anchor="middle" class="label">
+Feature Maps
+</text>
+
+<!-- FEATURE MAPS TO POOLING -->
+<path d="M1160 230 L1240 230" class="arrow"/>
+
+<!-- POOLING -->
+<rect x="1260" y="170" width="110" height="120" class="layer"/>
+
+<text x="1315" y="145" text-anchor="middle" class="label">
+Pooling
+</text>
+
+<g stroke="#00ffff" opacity="0.5">
+
+<rect x="1285" y="195" width="25" height="25"/>
+<rect x="1315" y="195" width="25" height="25"/>
+
+<rect x="1285" y="225" width="25" height="25"/>
+<rect x="1315" y="225" width="25" height="25"/>
+
+</g>
+
+<!-- POOLING TO DENSE -->
+<path d="M1315 290 
+         L1315 400
+         L850 400
+         L850 470"
+class="arrow"/>
+
+<!-- DENSE NETWORK -->
+<rect x="520" y="470" width="380" height="200" class="layer"/>
+
+<text x="710" y="445" text-anchor="middle" class="label">
+Dense Neural Network
+</text>
+
+<!-- INPUT NODES -->
+<g fill="#00ffff">
+
+<circle cx="580" cy="520" r="10"/>
+<circle cx="580" cy="570" r="10"/>
+<circle cx="580" cy="620" r="10"/>
+
+<!-- HIDDEN -->
+<circle cx="710" cy="500" r="10"/>
+<circle cx="710" cy="550" r="10"/>
+<circle cx="710" cy="600" r="10"/>
+
+<!-- OUTPUT -->
+<circle cx="840" cy="530" r="10"/>
+<circle cx="840" cy="590" r="10"/>
+
+</g>
+
+<!-- CONNECTIONS -->
+<g stroke="#00ffff" opacity="0.5">
+
+<line x1="580" y1="520" x2="710" y2="500"/>
+<line x1="580" y1="520" x2="710" y2="550"/>
+<line x1="580" y1="520" x2="710" y2="600"/>
+
+<line x1="580" y1="570" x2="710" y2="500"/>
+<line x1="580" y1="570" x2="710" y2="550"/>
+<line x1="580" y1="570" x2="710" y2="600"/>
+
+<line x1="580" y1="620" x2="710" y2="500"/>
+<line x1="580" y1="620" x2="710" y2="550"/>
+<line x1="580" y1="620" x2="710" y2="600"/>
+
+<line x1="710" y1="500" x2="840" y2="530"/>
+<line x1="710" y1="500" x2="840" y2="590"/>
+
+<line x1="710" y1="550" x2="840" y2="530"/>
+<line x1="710" y1="550" x2="840" y2="590"/>
+
+<line x1="710" y1="600" x2="840" y2="530"/>
+<line x1="710" y1="600" x2="840" y2="590"/>
+
+</g>
+
+<!-- WEIGHT FLOW -->
+<g class="weights">
+
+<circle cx="650" cy="540" r="4" fill="#00ffff"/>
+<circle cx="760" cy="570" r="4" fill="#00ffff"/>
+<circle cx="790" cy="520" r="4" fill="#00ffff"/>
+
+</g>
+
+<!-- DENSE TO SOFTMAX -->
+<path d="M900 560 L1020 560" class="arrow"/>
+
+<!-- SOFTMAX -->
+<rect x="1040" y="470" width="260" height="200"
+class="layer pulse"/>
+
+<text x="1170" y="445"
+text-anchor="middle"
+class="label">
+Softmax Output
+</text>
+
+<!-- PROBABILITIES -->
+<text x="1080" y="525" class="small">
+Glioma : 98.2%
+</text>
+
+<rect x="1080" y="535"
+width="180"
+height="12"
+fill="#00ff66"/>
+
+<text x="1080" y="580" class="small">
+Meningioma : 1.2%
+</text>
+
+<rect x="1080" y="590"
+width="30"
+height="12"
+fill="#ffaa00"/>
+
+<text x="1080" y="635" class="small">
+Pituitary : 0.6%
+</text>
+
+<rect x="1080" y="645"
+width="15"
+height="12"
+fill="#ff4444"/>
+
+<!-- TRAINING METRICS -->
+<text x="120" y="520" class="label">
+Loss
+</text>
+
+<rect x="200" y="505"
+width="220"
+height="24"
+fill="#222"/>
+
+<rect x="200" y="505"
+width="220"
+height="24"
+fill="#ff4444"
+class="loss"/>
+
+<text x="120" y="590" class="label">
+Accuracy
+</text>
+
+<rect x="200" y="575"
+width="220"
+height="24"
+fill="#222"/>
+
+<rect x="200" y="575"
+width="220"
+height="24"
+fill="#00ff66"
+class="acc"/>
+
+<!-- EPOCH -->
+<text x="700" y="730"
+text-anchor="middle"
+font-size="28"
+fill="#00ffff"
+font-weight="bold"
+class="epoch">
+
+Training Epochs Running...
+
+</text>
+
+</svg>
