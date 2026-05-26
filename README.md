@@ -67,7 +67,13 @@ The project uses the [Brain Tumor MRI Dataset](https://www.kaggle.com/datasets/m
 - Data augmentation (rotation, flipping, zoom) to combat overfitting on small medical datasets
 
 ---
+## CNN Training Pipeline Visualization
 
+<p align="center">
+  <img src="advanced-cnn-training.svg" width="100%">
+</p>
+
+---
 ## 🏗️ Architecture Overview
 
 The project is structured as a systematic benchmark of deep learning approaches, progressing from classical CNN designs to state-of-the-art vision transformers:
