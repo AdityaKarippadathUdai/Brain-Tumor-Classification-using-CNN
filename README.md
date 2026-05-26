@@ -73,6 +73,7 @@ The project uses the [Brain Tumor MRI Dataset](https://www.kaggle.com/datasets/m
   <img src="advanced-cnn-training.svg" width="100%">
 </p>
 
+
 ---
 ## 🏗️ Architecture Overview
 
