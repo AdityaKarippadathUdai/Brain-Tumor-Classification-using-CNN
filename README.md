@@ -378,6 +378,7 @@ In Jupyter: `Kernel → Restart & Run All`
 
 **Aditya Karippadath Udai**
 [GitHub](https://github.com/AdityaKarippadathUdai)
+- LinkedIn: [Aditya Karippadath Udai](https://www.linkedin.com/in/aditya-udai-a580a232a/)
 
 ---
 
